@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>SSV Complete Workflow Guide</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23F2187D' d='M32 2c-7.2 0-13 5.8-13 13v9H16c-3.3 0-6 2.7-6 6v24c0 3.3 2.7 6 6 6h32c3.3 0 6-2.7 6-6V30c0-3.3-2.7-6-6-6h-3v-9C45 7.8 39.2 2 32 2zm-7 22v-9c0-3.9 3.1-7 7-7s7 3.1 7 7v9H25z'/%3E%3C/svg%3E"/>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <div class="particles"></div>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <img src="assets/img/sampurna-logo.png" alt="Sampurna logo"/>
+        <div class="titles">
+          <b>Sampurna Secure Vault</b>
+          <span>Complete Workflow Guide</span>
+          <a href="https://4.187.152.147:8200/ui/vault/auth?with=oidc" target="_blank" rel="noopener">
+            <span class="pill" style="padding:6px 10px; border-radius:999px;">
+              <span class="dot"></span>
+              Open Vault Login
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="normal.html">Normal User</a>
+        <a href="super.html">Super User</a>
+        <a href="admin.html">Admin</a>
+        <a href="security.html">Security</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero reveal">
+      <div class="hero-inner">
+        <div>
+          <h1 class="h1">SSV User Guide Website</h1>
+          <p class="sub">
+            A modern, device-friendly workflow portal for Sampurna Secure Vault — designed to be hosted on GitHub Pages so anyone can access it from anywhere.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#guide-index">Open Index</a>
+            <a class="btn" href="https://4.187.152.147:8200" target="_blank" rel="noopener">Vault UI</a>
+            <span class="badge">Vault • Trust • Confidentiality</span>
+          </div>
+        </div>
+        <div class="preview">
+          <img src="assets/img/about_ssv.png" alt="SSV Overview"/>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card reveal">
+        
+<div class='callout'>
+  <b>Welcome!</b>
+  Sampurna Secure Vault (SSV) is our centralized, self-hosted secrets platform built for security, trust, and operational sanity.
+  It keeps passwords, API keys, certificates, and automation credentials out of spreadsheets and source code — with MFA, audit logs, and role-based access.
+</div>
+
+<div class='grid' id='guide-index'>
+  <div class='card span6 soft reveal'>
+    <div class='kpi'>
+      <b>Zero secrets in code</b>
+      <span>Apps fetch time-bound secrets from Vault — no hardcoding, no accidental Git leaks.</span>
+    </div>
+  </div>
+  <div class='card span6 soft reveal'>
+    <div class='kpi'>
+      <b>MFA + Audit</b>
+      <span>OTP enforced. Every view/edit/delete is logged. Accountability built-in.</span>
+    </div>
+  </div>
+
+  <div class='card span12 reveal'>
+    <h2>Index</h2>
+    <p>Pick your role and jump straight to the right playbook.</p>
+    <div class='list-links'>
+      <a class='link-card' href='about.html'>
+        <div>
+          <b>1. About the Platform</b><br/>
+          <small>Why SSV exists, objectives, structure, maintenance, and tool selection.</small>
+        </div>
+        <div class='arrow'>→</div>
+      </a>
+      <a class='link-card' href='normal.html'>
+        <div>
+          <b>2. Normal User Guide</b><br/>
+          <small>Private “mysecret” usage, daily workflow, password/OTP recovery.</small>
+        </div>
+        <div class='arrow'>→</div>
+      </a>
+      <a class='link-card' href='super.html'>
+        <div>
+          <b>3. Super User Guide</b><br/>
+          <small>Shared scripts engine, rotations, organization rules, emergency actions.</small>
+        </div>
+        <div class='arrow'>→</div>
+      </a>
+      <a class='link-card' href='admin.html'>
+        <div>
+          <b>4. Admin Maintenance Guide</b><br/>
+          <small>VM routine, unseal, helpdesk actions, bulk scripts, operational SOP.</small>
+        </div>
+        <div class='arrow'>→</div>
+      </a>
+      <a class='link-card' href='security.html'>
+        <div>
+          <b>5. Security Policies & Guidelines</b><br/>
+          <small>Do’s / Don’ts for everyone — normal users, super users, admins.</small>
+        </div>
+        <div class='arrow'>→</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+      </article>
+    </section>
+
+    <footer class="footer">
+      Build with love and made with <span class="heart">💓</span> by <span class="sampurna">Sampurna IT Team</span>
+    </footer>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
