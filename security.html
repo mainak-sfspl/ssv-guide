@@ -60,89 +60,76 @@
       <article class="card reveal">
         <h2>Guide Content</h2>
         <div class="content">
-          <p class='p'>🛡️ Sampurna Vault – Security Policies &amp;</p>
-<p class='p'>Guidelines</p>
-<p class='p'>Strict Usage Rules &amp; Compliance Standards</p>
-<h2 class='h2'>1. General Security Rules (For All Users)</h2>
-<p class='p'>These rules apply to every employee, regardless of their role.</p>
-<h3 class='h3'>A. Password &amp; Authentication Policy</h3>
-<h2 class='h2'>1. Strict Confidentiality:  Never share your Vault password or OTP with anyone,</h2>
-<p class='p'>including IT staff or managers.</p>
-<h2 class='h2'>2. Password Strength:  When prompted to change your password, ensure it is at least</h2>
-<p class='p'>8 characters long  and includes a mix of letters, numbers, and symbols.</p>
-<h2 class='h2'>3. 2FA Mandate:  Two -Factor Authentication (OTP via Authenticator App) is</h2>
-<p class='p'>mandatory. Disabling 2FA is a violation of security policy.</p>
-<h2 class='h2'>4. Lock Your Screen:  Never leave your computer unlocked while logged into the Vault.</h2>
-<h3 class='h3'>B. Device &amp; Network Security</h3>
-<h2 class='h2'>1. Official Devices Only:  Do not access the Vault from personal devices (café</h2>
-<p class='p'>computers, personal tablets, unmanaged phones).</p>
-<h2 class='h2'>2. Phishing Awareness:  The Vault URL is https://4.187.152.147:8200 . Verify this URL</h2>
-<p class='p'>every time before entering credentials.</p>
-<h2 class='h2'>2. Guidelines for Normal Users</h2>
-<p class='p'>Role: Standard Employees managing personal secrets.</p>
-<h3 class='h3'>A. Allowed Data</h3>
-<h2 class='h2'>1. Work -Related Only:  The mysecret folder is for storing work -related  credentials</h2>
-<p class='p'>only (e.g., Jira passwords, internal portal logins).</p>
-<h2 class='h2'>2. No Personal Data:  Do not store personal banking passwords, social media logins,</h2>
-<p class='p'>or private photos in the company Vault.</p>
-<h3 class='h3'>B. Data Hygiene</h3>
-<h2 class='h2'>1. No Excel Sheets:  You are strictly prohibited from saving passwords in Excel files,</h2>
-<p class='p'>Sticky Notes, or Notepad on your desktop. Move them all to Vault.</p>
-<h2 class='h2'>2. Copy -Paste Security:  When copying a password from Vault, clear your clipboard</h2>
-<p class='p'>immediately after usage.</p>
-<h3 class='h3'>C. Incident Reporting</h3>
-<h2 class='h2'>1. Lost Device:  If you lose the phone containing your Authenticator App, report it to IT</h2>
-<p class='p'>immediately  so your OTP access can be revoked.</p>
-<h2 class='h2'>2. Suspicious Activity:  If you see a &quot;Last Login&quot; time that you do not recognize, notify</h2>
-<p class='p'>IT immediately.</p>
-<h2 class='h2'>3. Guidelines for Super Users</h2>
-<p class='p'>Role: Senior staff managing shared company secrets (scripts engine).</p>
-<h3 class='h3'>A. Secret Management &amp; Hierarchy</h3>
-<h2 class='h2'>1. Naming Convention:  You must strictly follow the folder hierarchy.</h2>
-<p class='p'>a. ✅ Correct: scripts/prod/aws/billing -key</p>
-<p class='p'>b. ❌ Incorrect: scripts/my -stuff/key1</p>
-<h2 class='h2'>2. Least Privilege:  Do not give a secret path to a junior developer unless they</h2>
-<p class='p'>specifically need it for a task.</p>
-<h2 class='h2'>3. No Hardcoding:  Do not copy credentials from Vault and hardcode them into</h2>
-<p class='p'>application source code. Applications should be configured to fetch secrets</p>
-<p class='p'>dynamically or via environment variables.</p>
-<h3 class='h3'>B. Operational Integrity</h3>
-<h2 class='h2'>1. Version Control:  If you update a password (e.g., Database Rotation), verify the</h2>
-<p class='p'>application is working before closing the session. Vault keeps versions —use the</p>
-<p class='p'>Rollback  feature if the new password fails.</p>
-<h2 class='h2'>2. Rotation Policy:  Critical production secrets (e.g., AWS Root Keys, Database Master</h2>
-<p class='p'>Passwords) should be rotated every 90 days.</p>
-<h2 class='h2'>4. Guidelines for Administrators (IT Admin)</h2>
-<p class='p'>Role: System Owners managing the VM, Keycloak, and Vault Server.</p>
-<h3 class='h3'>A. Root Token Security</h3>
-<h2 class='h2'>1. Absolute Secrecy:  The Vault Root Token  allows full access to everything. It must</h2>
-<p class='p'>never  be shared via chat or email.</p>
-<h2 class='h2'>2. Storage:  Store the Root Token in a secure, offline location (e.g., a physical safe or</h2>
-<p class='p'>an encrypted offline drive).</p>
-<h2 class='h2'>3. Script Hygiene:  When running Python bulk scripts (delete_vault_folders.py), never</h2>
-<p class='p'>commit the script to Git  with the Root Token inside. Delete the token from the</p>
-<p class='p'>script immediately after running it.</p>
-<h3 class='h3'>B. Server Maintenance</h3>
-<h2 class='h2'>1. Unseal Keys:  The 3 Unseal Keys must be distributed among different senior</h2>
-<p class='p'>admins. No single person should hold all keys if possible (Split Knowledge</p>
-<p class='p'>Principle).</p>
-<h2 class='h2'>2. Backups:  Perform daily snapshots of the VM or specific backups of the Vault data</h2>
-<p class='p'>directory.</p>
-<h2 class='h2'>3. Audit Logs:  Review Keycloak and Vault audit logs weekly to detect failed login</h2>
-<p class='p'>attempts or unauthorized access patterns.</p>
-<h3 class='h3'>C. Onboarding &amp; Offboarding</h3>
-<h2 class='h2'>1. SLA for Removal:  When an employee leaves, their access must be revoked (User</h2>
-<p class='p'>deleted in Keycloak) within 1 hour  of their exit.</p>
-<h2 class='h2'>2. Clean Up:  Run the Vault cleanup script (delete_vault_folders.py) promptly to</h2>
-<p class='p'>ensure no stale data remains for terminated employees.</p>
-<h2 class='h2'>5. Violation &amp; Enforcement</h2>
-<p class='p'>Failure to adhere to these guidelines poses a risk to Sampurna&#x27;s data security.</p>
-<h2 class='h2'>1. First Violation:  Formal warning and mandatory security retraining.</h2>
-<h2 class='h2'>2. Second Violation:  Temporary suspension of Vault access.</h2>
-<h2 class='h2'>3. Severe Violation:  (e.g., sharing the Root Token or exporting secrets to public</h2>
-<p class='p'>networks) will result in immediate disciplinary action, up to and including</p>
-<p class='p'>termination of employment.</p>
-<h2 class='h2'>6. Summary</h2>
+          <div class="guide-pre">🛡️ Sampurna Vault – Security Policies &amp;
+
+Guidelines
+Strict Usage Rules &amp; Compliance Standards
+
+1. General Security Rules (For All Users)
+These rules apply to every employee, regardless of their role.
+
+A. Password &amp; Authentication Policy
+1. Strict Confidentiality: Never share your Vault password or OTP with anyone, including IT staff or managers.
+2. Password Strength: When prompted to change your password, ensure it is at least 8 characters long and includes a mix of letters, numbers, and symbols.
+3. 2FA Mandate: Two -Factor Authentication (OTP via Authenticator App) is mandatory. Disabling 2FA is a violation of security policy.
+4. Lock Your Screen: Never leave your computer unlocked while logged into the Vault.
+
+B. Device &amp; Network Security
+1. Official Devices Only: Do not access the Vault from personal devices (café computers, personal tablets, unmanaged phones).
+2. Phishing Awareness: The Vault URL is https://4.187.152.147:8200 . Verify this URL every time before entering credentials.
+2. Guidelines for Normal Users
+Role: Standard Employees managing personal secrets.
+
+A. Allowed Data
+1. Work -Related Only: The mysecret folder is for storing work -related credentials only (e.g., Jira passwords, internal portal logins).
+2. No Personal Data: Do not store personal banking passwords, social media logins, or private photos in the company Vault.
+
+B. Data Hygiene
+1. No Excel Sheets: You are strictly prohibited from saving passwords in Excel files, Sticky Notes, or Notepad on your desktop. Move them all to Vault.
+2. Copy -Paste Security: When copying a password from Vault, clear your clipboard immediately after usage.
+
+C. Incident Reporting
+1. Lost Device: If you lose the phone containing your Authenticator App, report it to IT immediately so your OTP access can be revoked.
+2. Suspicious Activity: If you see a &quot;Last Login&quot; time that you do not recognize, notify IT immediately.
+3. Guidelines for Super Users
+
+
+Role: Senior staff managing shared company secrets (scripts engine).
+
+A. Secret Management &amp; Hierarchy
+1. Naming Convention: You must strictly follow the folder hierarchy.
+	a. ✅ Correct: scripts/prod/aws/billing -key
+	b. ❌ Incorrect: scripts/my -stuff/key1
+2. Least Privilege: Do not give a secret path to a junior developer unless they specifically need it for a task.
+3. No Hardcoding: Do not copy credentials from Vault and hardcode them into application source code. Applications should be configured to fetch secrets dynamically or via environment variables.
+
+B. Operational Integrity
+1. Version Control: If you update a password (e.g., Database Rotation), verify the application is working before closing the session. Vault keeps versions —use the Rollback feature if the new password fails.
+2. Rotation Policy: Critical production secrets (e.g., AWS Root Keys, Database Master Passwords) should be rotated every 90 days.
+
+Guidelines for Administrators (IT Admin)
+Role: System Owners managing the VM, Keycloak, and Vault Server.
+
+A. Root Token Security
+1. Absolute Secrecy: The Vault Root Token allows full access to everything. It must never be shared via chat or email.
+2. Storage: Store the Root Token in a secure, offline location (e.g., a physical safe or an encrypted offline drive).
+3. Script Hygiene: When running Python bulk scripts (delete_vault_folders.py), never commit the script to Git with the Root Token inside. Delete the token from the script immediately after running it.
+
+B. Server Maintenance
+1. Unseal Keys: The 3 Unseal Keys must be distributed among different senior admins. No single person should hold all keys if possible (Split Knowledge Principle).
+2. Backups: Perform daily snapshots of the VM or specific backups of the Vault data directory.
+3. Audit Logs: Review Keycloak and Vault audit logs weekly to detect failed login attempts or unauthorized access patterns.
+
+C. Onboarding &amp; Offboarding
+1. SLA for Removal: When an employee leaves, their access must be revoked (User deleted in Keycloak) within 1 hour of their exit.
+2. Clean Up: Run the Vault cleanup script (delete_vault_folders.py) promptly to ensure no stale data remains for terminated employees.
+
+Violation &amp; Enforcement
+
+Failure to adhere to these guidelines poses a risk to Sampurna&#x27;s data security.
+1. First Violation: Formal warning and mandatory security retraining.
+2. Second Violation: Temporary suspension of Vault access.
+3. Severe Violation: (e.g., sharing the Root Token or exporting secrets to public networks) will result in immediate disciplinary action, up to and including termination of employment.</div>
         </div>
       </article>
     </section>
