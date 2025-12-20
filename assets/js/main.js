@@ -1,15 +1,17 @@
-// Active nav highlight + scroll reveal + particles + topbar slide + image lightbox.
+// Enhanced main.js - Sliding header, glass effect, mobile menu
 (function () {
   const topbar = document.querySelector(".topbar");
+  const navToggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".nav");
 
-  // active nav
+  // Active nav highlight
   const path = location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".nav a").forEach((a) => {
     const href = (a.getAttribute("href") || "").split("/").pop();
     if (href === path) a.classList.add("active");
   });
 
-  // set topbar height so content never hides behind it
+  // Set topbar height CSS variable
   function setTopbarHeight() {
     if (!topbar) return;
     const h = topbar.getBoundingClientRect().height;
@@ -18,7 +20,7 @@
   window.addEventListener("resize", setTopbarHeight);
   setTopbarHeight();
 
-  // topbar slide on scroll (hide going down, show going up)
+  // Sliding topbar on scroll (hide going down, show going up)
   let lastY = window.scrollY || 0;
   let ticking = false;
 
@@ -42,7 +44,43 @@
   }
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  // scroll reveal
+  // Mobile menu toggle
+  if (navToggle && nav) {
+    navToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = nav.classList.contains("nav-open");
+      
+      if (isOpen) {
+        nav.classList.remove("nav-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.innerHTML = "☰";
+      } else {
+        nav.classList.add("nav-open");
+        navToggle.setAttribute("aria-expanded", "true");
+        navToggle.innerHTML = "✕";
+      }
+    });
+
+    // Close menu when clicking nav link
+    document.querySelectorAll(".nav a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("nav-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.innerHTML = "☰";
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!nav.contains(e.target) && !navToggle.contains(e.target)) {
+        nav.classList.remove("nav-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.innerHTML = "☰";
+      }
+    });
+  }
+
+  // Scroll reveal
   const obs = new IntersectionObserver(
     (entries) => {
       entries.forEach((e) => {
@@ -53,7 +91,7 @@
   );
   document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
 
-  // particles
+  // Particles
   const wrap = document.querySelector(".particles");
   if (wrap) {
     const n = 22;
@@ -67,7 +105,7 @@
     }
   }
 
-  // image lightbox (click to zoom)
+  // Image lightbox (click to zoom)
   function openLightbox(src, alt) {
     const overlay = document.createElement("div");
     overlay.className = "lightbox";
@@ -87,7 +125,7 @@
     };
 
     overlay.addEventListener("click", (e) => {
-      if (e.target === overlay) close();
+      if (e.target === overlay || e.target.classList.contains("lightbox-inner")) close();
     });
     document.addEventListener("keydown", onKey);
   }
