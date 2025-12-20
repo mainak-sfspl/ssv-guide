@@ -26,7 +26,8 @@
         </div>
       </div>
 
-      <nav class="nav">
+      <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" title="Menu">☰</button>
+      <nav class="nav" id="site-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="normal.html">Normal User</a>
@@ -48,13 +49,19 @@
           <div class="cta-row">
             <a class="btn primary" href="#guide-index">Open Index</a>
             <a class="btn" href="https://4.187.152.147:8200" target="_blank" rel="noopener">Vault UI</a>
+            <a class="btn" href="http://4.187.152.147:8080" target="_blank" rel="noopener">Keycloak (Admin)</a>
+            <a class="btn" href="http://4.187.152.147:8080/realms/Sampurna/account" target="_blank" rel="noopener">Keycloak (Users)</a>
             <span class="badge">Vault • Trust • Confidentiality</span>
           </div>
         </div>
-        <div class="preview">
-          <img src="assets/img/about_ssv.png" alt="SSV Overview"/>
-        </div>
       </div>
+      <div class="hero-media reveal">
+        <figure class="hero-figure">
+          <img class="zoomable" src="assets/img/home_ssv.png" alt="SSV Overview (Home)"/>
+          <figcaption class="img-hint">Tap/Click the image to zoom</figcaption>
+        </figure>
+      </div>
+    
     </section>
 
     <section class="grid">

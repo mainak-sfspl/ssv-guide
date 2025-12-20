@@ -26,7 +26,8 @@
         </div>
       </div>
 
-      <nav class="nav">
+      <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" title="Menu">☰</button>
+      <nav class="nav" id="site-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="normal.html">Normal User</a>
@@ -46,125 +47,109 @@
           <div class="cta-row">
             <a class="btn primary" href="index.html#guide-index">Jump to Guides</a>
             <a class="btn" href="https://4.187.152.147:8200" target="_blank" rel="noopener">Vault UI</a>
+            <a class="btn" href="http://4.187.152.147:8080" target="_blank" rel="noopener">Keycloak (Admin)</a>
+            <a class="btn" href="http://4.187.152.147:8080/realms/Sampurna/account" target="_blank" rel="noopener">Keycloak (Users)</a>
             <span class="badge">Security-first • Role-based • Audited</span>
           </div>
           <div class='cta-row' style='margin-top:12px'><a class='btn primary' href='assets/pdfs/normal_user_guide.pdf' download>Download Normal User Guide (PDF)</a></div>
         </div>
-        <div class="preview">
-          <img src="assets/img/normal_user_guide.png" alt="overview"/>
-        </div>
       </div>
+      <div class="hero-media reveal">
+        <figure class="hero-figure">
+          <img class="zoomable" src="assets/img/normal_user_guide.png" alt="Normal User Guide overview"/>
+          <figcaption class="img-hint">Tap/Click the image to zoom</figcaption>
+        </figure>
+      </div>
+    
     </section>
 
     <section class="grid">
       <article class="card reveal">
         <h2>Guide Content</h2>
         <div class="content">
-          <div class="guide-pre">Sampurna Vault – Normal User Guide
-
-Secure Secret Management for Employees
-
-1. Introduction
-
-Welcome to the Sampurna Vault . This is a secure, encrypted platform where you can
-safely store your sensitive data (passwords, API keys, certificates, confidential notes).
-Unlike saving passwords in Excel or Notepad, saving them here ensures they are encrypted
-and accessible only to you .
-
-Prerequisites
-
-Before you begin, please install an Authenticator App on your mobile phone. You will need this for Two -Factor Authentication (2FA).
-    Google Authenticator (Android / iOS)
-    Microsoft Authenticator (Android / iOS)
-
-2. First -Time Setup (Mandatory)
-You only need to do this once .
-
-Step 1: Access the Vault
-1. Open your web browser (Chrome/Edge recommended).
-2. Go to the Vault URL: https://4.187.152.147:8200 (Note: If you see a &quot;Not Secure&quot;
-warning because of the self -signed certificate, click Advanced -&gt; Proceed ).
-
-Step 2: Login via OIDC
-1. On the Vault login screen, look at the Method dropdown.
-2. Select OIDC (Do not use Token or LDAP).
-3. Click the Sign in with OIDC Provider button.
-
-Step 3: Authenticate &amp; Set New Password
-1. You will be redirected to the Sampurna Secure Login page (Dark Theme).
-2. Username: Enter your Employee ID (e.g., 100015).
-3. Password: Enter the temporary password provided by IT: 1234
-
-Step 4: Configure OTP (2FA)
-1. After giving your temporary password, you will see a QR Code on the screen.
-2. Open your Authenticator App on your phone.
-3. Tap + or Add Account -&gt; Scan QR Code .
-4. Scan the code on the screen.
-5. Your phone will generate a 6 -digit code. Enter that code into the browser.
-
-Step 5: Set New Password and Give your Email
-1. Update Password: The system will immediately ask you to change your password.
-	a. Enter 1234 as the current password.
-	b. Enter a strong new password (at least 8 characters).
-	c. Confirm the new password and submit.
-2. Give Your Email and submit.
-
-Success! You are now logged into Vault.
-
-3. Daily Usage Guide
-
-How to Login Daily-
-1. Go to https://4.187.152.147:8200 .
-2. Select Method: OIDC .
-3. Click Sign in .
-4. Enter your Employee ID and New Password .
-5. Enter the 6-digit OTP from your mobile app.
-
-How to Access Your Secret Folder-
-Once logged in, you will see a list of &quot;Secret Engines&quot;.
-1. Click on ssv (Sampurna Secure Vault).
-2. Click on users .
-3. Find and click on your Employee ID (e.g., 100015).
-4. Click on the folder named mysecret .
-
-a. Note: This is your private workspace. No other employee can see inside this folder.
-
-How to Create a New Secret
-1. Inside your mysecret folder, click + Create Secret (top right).
-2. Path for this secret: Give it a name (e.g., facebook -password or project -api-keys).
-3. Secret Data:
-	a. Key: (e.g., username) | Value: (e.g., john.doe@email.com )
-	b. Key: (e.g., password) | Value: (e.g., MySuperSecretPass123!)
-4. Click Save .
-
-How to Retrieve/View a Secret
-1. Navigate to your folder (ssv -&gt; users -&gt; ID -&gt; mysecret).
-2. Click on the secret name (e.g., facebook -password).
-3. Click the Eye Icon ( ) next to the password to reveal it.
-4. Click the Copy Icon ( ) to copy it to your clipboard.
-4. Forgot Password / Lost Phone?
-
-Since this system is highly secured with encryption, there is no automatic &quot;ForgotPassword&quot; link on the login page.
-Scenario A: You Forgot Your Password-
-
-1. Send an email to the Sampurna IT Admin Helpdesk .
-a. Subject: Vault Password Reset Request - [Your Employee ID]
-2. The IT Admin will reset your account.
-3. Your password will be reset to the default (1234).
-4. You must follow the First -Time Setup steps again to set a new password.
-
-Scenario B: You Lost Your Phone / Authenticator App-
-
-1. Contact the Sampurna IT Helpdesk immediately.
-2. Request an &quot;OTP Reset&quot; .
-3. The admin will clear your 2FA settings.
-4. On your next login, you will be prompted to scan a New QR Code to set up the authenticator on your new device.</div>
+          <div class="guide-body"><p class='g-p'>Sampurna Vault – Normal User Guide</p>
+<p class='g-p'>Secure Secret Management for Employees</p>
+<p class='g-p'>1. Introduction</p>
+<p class='g-p'>Welcome to the Sampurna Vault . This is a secure, encrypted platform where you can</p>
+<p class='g-p'>safely store your sensitive data (passwords, API keys, certificates, confidential notes).</p>
+<p class='g-p'>Unlike saving passwords in Excel or Notepad, saving them here ensures they are encrypted</p>
+<p class='g-p'>and accessible only to you .</p>
+<p class='g-p'>Prerequisites</p>
+<p class='g-p'>Before you begin, please install an Authenticator App on your mobile phone. You will need this for Two -Factor Authentication (2FA).</p>
+<p class='g-p'>Google Authenticator (Android / iOS)</p>
+<p class='g-p'>Microsoft Authenticator (Android / iOS)</p>
+<p class='g-p'>2. First -Time Setup (Mandatory)</p>
+<p class='g-p'>You only need to do this once .</p>
+<p class='g-p'>Step 1: Access the Vault</p>
+<p class='g-p'>1. Open your web browser (Chrome/Edge recommended).</p>
+<p class='g-p'>2. Go to the Vault URL: https://4.187.152.147:8200 (Note: If you see a "Not Secure"</p>
+<p class='g-p'>warning because of the self -signed certificate, click Advanced -> Proceed ).</p>
+<p class='g-p'>Step 2: Login via OIDC</p>
+<p class='g-p'>1. On the Vault login screen, look at the Method dropdown.</p>
+<p class='g-p'>2. Select OIDC (Do not use Token or LDAP).</p>
+<p class='g-p'>3. Click the Sign in with OIDC Provider button.</p>
+<p class='g-p'>Step 3: Authenticate & Set New Password</p>
+<p class='g-p'>1. You will be redirected to the Sampurna Secure Login page (Dark Theme).</p>
+<p class='g-p'>2. Username: Enter your Employee ID (e.g., 100015).</p>
+<p class='g-p'>3. Password: Enter the temporary password provided by IT: 1234</p>
+<p class='g-p'>Step 4: Configure OTP (2FA)</p>
+<p class='g-p'>1. After giving your temporary password, you will see a QR Code on the screen.</p>
+<p class='g-p'>2. Open your Authenticator App on your phone.</p>
+<p class='g-p'>3. Tap + or Add Account -> Scan QR Code .</p>
+<p class='g-p'>4. Scan the code on the screen.</p>
+<p class='g-p'>5. Your phone will generate a 6 -digit code. Enter that code into the browser.</p>
+<p class='g-p'>Step 5: Set New Password and Give your Email</p>
+<p class='g-p'>1. Update Password: The system will immediately ask you to change your password.</p>
+<p class='g-p'>a. Enter 1234 as the current password.</p>
+<p class='g-p'>b. Enter a strong new password (at least 8 characters).</p>
+<p class='g-p'>c. Confirm the new password and submit.</p>
+<p class='g-p'>2. Give Your Email and submit.</p>
+<p class='g-p'>Success! You are now logged into Vault.</p>
+<p class='g-p'>3. Daily Usage Guide</p>
+<p class='g-p'>How to Login Daily-</p>
+<p class='g-p'>1. Go to https://4.187.152.147:8200 .</p>
+<p class='g-p'>2. Select Method: OIDC .</p>
+<p class='g-p'>3. Click Sign in .</p>
+<p class='g-p'>4. Enter your Employee ID and New Password .</p>
+<p class='g-p'>5. Enter the 6-digit OTP from your mobile app.</p>
+<p class='g-p'>How to Access Your Secret Folder-</p>
+<p class='g-p'>Once logged in, you will see a list of "Secret Engines".</p>
+<p class='g-p'>1. Click on ssv (Sampurna Secure Vault).</p>
+<p class='g-p'>2. Click on users .</p>
+<p class='g-p'>3. Find and click on your Employee ID (e.g., 100015).</p>
+<p class='g-p'>4. Click on the folder named mysecret .</p>
+<p class='g-p'>a. Note: This is your private workspace. No other employee can see inside this folder.</p>
+<p class='g-p'>How to Create a New Secret</p>
+<p class='g-p'>1. Inside your mysecret folder, click + Create Secret (top right).</p>
+<p class='g-p'>2. Path for this secret: Give it a name (e.g., facebook -password or project -api-keys).</p>
+<p class='g-p'>3. Secret Data:</p>
+<p class='g-p'>a. Key: (e.g., username) | Value: (e.g., john.doe@email.com )</p>
+<p class='g-p'>b. Key: (e.g., password) | Value: (e.g., MySuperSecretPass123!)</p>
+<p class='g-p'>4. Click Save .</p>
+<p class='g-p'>How to Retrieve/View a Secret</p>
+<p class='g-p'>1. Navigate to your folder (ssv -> users -> ID -> mysecret).</p>
+<p class='g-p'>2. Click on the secret name (e.g., facebook -password).</p>
+<p class='g-p'>3. Click the Eye Icon ( ) next to the password to reveal it.</p>
+<p class='g-p'>4. Click the Copy Icon ( ) to copy it to your clipboard.</p>
+<p class='g-p'>4. Forgot Password / Lost Phone?</p>
+<p class='g-p'>Since this system is highly secured with encryption, there is no automatic "ForgotPassword" link on the login page.</p>
+<p class='g-p'>Scenario A: You Forgot Your Password-</p>
+<p class='g-p'>1. Send an email to the Sampurna IT Admin Helpdesk .</p>
+<p class='g-p'>a. Subject: Vault Password Reset Request - [Your Employee ID]</p>
+<p class='g-p'>2. The IT Admin will reset your account.</p>
+<p class='g-p'>3. Your password will be reset to the default (1234).</p>
+<p class='g-p'>4. You must follow the First -Time Setup steps again to set a new password.</p>
+<p class='g-p'>Scenario B: You Lost Your Phone / Authenticator App-</p>
+<p class='g-p'>1. Contact the Sampurna IT Helpdesk immediately.</p>
+<p class='g-p'>2. Request an "OTP Reset" .</p>
+<p class='g-p'>3. The admin will clear your 2FA settings.</p>
+<p class='g-p'>4. On your next login, you will be prompted to scan a New QR Code to set up the authenticator on your new device.</p></div>
         </div>
       </article>
     </section>
 
     <footer class="footer">
-      Build with trust and made with <span class="heart">💓</span> by <span class="sampurna">Sampurna IT Team</span>
+      Build with Trust and made with <span class="heart">❤️</span> by the <span class="sampurna">Sampurna IT Team</span>
     </footer>
   </main>
 

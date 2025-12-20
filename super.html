@@ -26,7 +26,8 @@
         </div>
       </div>
 
-      <nav class="nav">
+      <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" title="Menu">☰</button>
+      <nav class="nav" id="site-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="normal.html">Normal User</a>
@@ -46,120 +47,108 @@
           <div class="cta-row">
             <a class="btn primary" href="index.html#guide-index">Jump to Guides</a>
             <a class="btn" href="https://4.187.152.147:8200" target="_blank" rel="noopener">Vault UI</a>
+            <a class="btn" href="http://4.187.152.147:8080" target="_blank" rel="noopener">Keycloak (Admin)</a>
+            <a class="btn" href="http://4.187.152.147:8080/realms/Sampurna/account" target="_blank" rel="noopener">Keycloak (Users)</a>
             <span class="badge">Security-first • Role-based • Audited</span>
           </div>
           <div class='cta-row' style='margin-top:12px'><a class='btn primary' href='assets/pdfs/super_user_guide.pdf' download>Download Super User Guide (PDF)</a></div>
         </div>
-        <div class="preview">
-          <img src="assets/img/super_user_guide.png" alt="overview"/>
-        </div>
       </div>
+      <div class="hero-media reveal">
+        <figure class="hero-figure">
+          <img class="zoomable" src="assets/img/super_user_guide.png" alt="Super User Guide overview"/>
+          <figcaption class="img-hint">Tap/Click the image to zoom</figcaption>
+        </figure>
+      </div>
+    
     </section>
 
     <section class="grid">
       <article class="card reveal">
         <h2>Guide Content</h2>
         <div class="content">
-          <div class="guide-pre">Sampurna Vault – Super User Guide
-
-Managing Company -Wide Critical Secrets
-
-1. Role Overview
-As a Super User , you have elevated access beyond a normal employee because Normal Users only manage their private folder (mysecret) where as Super Users (You) manage the shared scripts engine.
-Responsibility: You ensure that production keys, database passwords, and
-automation credentials are safe, updated, and organized.
-
-2. First -Time Setup (Mandatory)
-You only need to do this once .
-
-Step 1: Access the Vault
-1. Open your web browser (Chrome/Edge recommended).
-2. Go to the Vault URL: https://4.187.152.147:8200 (Note: If you see a &quot;Not Secure&quot;
-warning because of the self -signed certificate, click Advanced -&gt; Proceed ).
-
-Step 2: Login via OIDC
-1. On the Vault login screen, look at the Method dropdown.
-2. Select OIDC (Do not use Token or LDAP).
-3. Click the Sign in with OIDC Provider button.
-
-Step 3: Authenticate &amp; Set New Password
-1. You will be redirected to the Sampurna Secure Login page (Dark Theme).
-2. Username: Enter your User Name (e.g., Super_User ).
-3. Password: Enter the temporary password provided by IT: 1234
-
-Step 4: Configure OTP (2FA)
-1. After giving your temporary password, you will see a QR Code on the screen.
-2. Open your Authenticator App on your phone.
-3. Tap + or Add Account -&gt; Scan QR Code .
-4. Scan the code on the screen.
-5. Your phone will generate a 6 -digit code. Enter that code into the browser.
-
-Step 5: Set New Password and Give your Email
-1. Update Password: The system will immediately ask you to change your password.
-	a. Enter 1234 as the current password.
-	b. Enter a strong new password (at least 8 characters).
-	c. Confirm the new password and submit.
-2. Give Your Email and submit.
-✅ Success! You are now logged into Vault
-
-Step 6: Verify Super User Access
-1. Once logged in, look at the list of &quot;Secret Engines&quot;.
-2. You should see a folder named scripts (in addition to ssv).
-3. Click on scripts .
-4. If you can enter this folder and see sub -folders (like prod, dev, db), your Super User access is active.
-	a. If you get &quot;Permission Denied&quot;, contact the IT Admin immediately.
-
-3. Managing Company Secrets (Daily Tasks)
-
-How to Add a New Company Secret -
-Scenario: The DevOps team generated a new API Key for AWS Production.
-
-1. Navigate to scripts -&gt; prod -&gt; aws (or create these folders if missing).
-2. Click + Create Secret .
-3. Path: scripts/prod/aws/billing -api
-4. Secret Data:
-	a. Key: access_key | Value: AKIA......
-	b. Key: secret_key | Value: Xy7z......
-5. Click Save .
-
-How to Rotate (Update) a Password -
-Scenario: The Database password expired and needs updating.
-
-1. Navigate to the existing secret (e.g., scripts/prod/db/sql -master).
-2. Click Create new version (or Edit).
-3. Replace the old value with the New Password .
-4. Click Save .
-	a. Note: Vault keeps a history of old versions in case you need to rollback.
-
-How to Organize Data (Best Practices)-
-Do not dump everything in the root folder. Use a hierarchy:
-scripts/prod/ (Production data - Highly Sensitive)
-scripts/uat/ (User Acceptance Testing)
-scripts/dev/ (Development keys)
-scripts/common/ (Shared Wi -Fi passwords, license keys)
-
-4. Emergency Procedures
-What if You (Super User) Forget Your Password?
-1. You must contact the IT Admin Team immediately.
-2. Since your account has elevated access, you may be required to re -verify your
-identity before the reset is processed.
-
-What if a Secret is Accidentally Deleted?
-1. Don&#x27;t panic. Vault (KV v2) supports &quot;Soft Delete.&quot;
-2. Navigate to the secret path.
-3. Click on the Versions tab.
-4. Locate the deleted version and click Undelete or Rollback .
-
-Security Rules for Super Users
-1. Need -to-Know Basis: Only share the specific secret path (e.g., scripts/dev/app) with developers, not the actual password text.
-2. No Copy -Pasting: Do not copy secrets from Vault into Slack, Teams, or WhatsApp.
-3. Audit Logs: Remember that every action you take (view, edit, delete) is logged by the system.</div>
+          <div class="guide-body"><p class='g-p'>Sampurna Vault – Super User Guide</p>
+<p class='g-p'>Managing Company -Wide Critical Secrets</p>
+<p class='g-p'>1. Role Overview</p>
+<p class='g-p'>As a Super User , you have elevated access beyond a normal employee because Normal Users only manage their private folder (mysecret) where as Super Users (You) manage the shared scripts engine.</p>
+<p class='g-p'>Responsibility: You ensure that production keys, database passwords, and</p>
+<p class='g-p'>automation credentials are safe, updated, and organized.</p>
+<p class='g-p'>2. First -Time Setup (Mandatory)</p>
+<p class='g-p'>You only need to do this once .</p>
+<p class='g-p'>Step 1: Access the Vault</p>
+<p class='g-p'>1. Open your web browser (Chrome/Edge recommended).</p>
+<p class='g-p'>2. Go to the Vault URL: https://4.187.152.147:8200 (Note: If you see a "Not Secure"</p>
+<p class='g-p'>warning because of the self -signed certificate, click Advanced -> Proceed ).</p>
+<p class='g-p'>Step 2: Login via OIDC</p>
+<p class='g-p'>1. On the Vault login screen, look at the Method dropdown.</p>
+<p class='g-p'>2. Select OIDC (Do not use Token or LDAP).</p>
+<p class='g-p'>3. Click the Sign in with OIDC Provider button.</p>
+<p class='g-p'>Step 3: Authenticate & Set New Password</p>
+<p class='g-p'>1. You will be redirected to the Sampurna Secure Login page (Dark Theme).</p>
+<p class='g-p'>2. Username: Enter your User Name (e.g., Super_User ).</p>
+<p class='g-p'>3. Password: Enter the temporary password provided by IT: 1234</p>
+<p class='g-p'>Step 4: Configure OTP (2FA)</p>
+<p class='g-p'>1. After giving your temporary password, you will see a QR Code on the screen.</p>
+<p class='g-p'>2. Open your Authenticator App on your phone.</p>
+<p class='g-p'>3. Tap + or Add Account -> Scan QR Code .</p>
+<p class='g-p'>4. Scan the code on the screen.</p>
+<p class='g-p'>5. Your phone will generate a 6 -digit code. Enter that code into the browser.</p>
+<p class='g-p'>Step 5: Set New Password and Give your Email</p>
+<p class='g-p'>1. Update Password: The system will immediately ask you to change your password.</p>
+<p class='g-p'>a. Enter 1234 as the current password.</p>
+<p class='g-p'>b. Enter a strong new password (at least 8 characters).</p>
+<p class='g-p'>c. Confirm the new password and submit.</p>
+<p class='g-p'>2. Give Your Email and submit.</p>
+<p class='g-callout'>✅ Success! You are now logged into Vault</p>
+<p class='g-p'>Step 6: Verify Super User Access</p>
+<p class='g-p'>1. Once logged in, look at the list of "Secret Engines".</p>
+<p class='g-p'>2. You should see a folder named scripts (in addition to ssv).</p>
+<p class='g-p'>3. Click on scripts .</p>
+<p class='g-p'>4. If you can enter this folder and see sub -folders (like prod, dev, db), your Super User access is active.</p>
+<p class='g-p'>a. If you get "Permission Denied", contact the IT Admin immediately.</p>
+<p class='g-p'>3. Managing Company Secrets (Daily Tasks)</p>
+<p class='g-p'>How to Add a New Company Secret -</p>
+<p class='g-p'>Scenario: The DevOps team generated a new API Key for AWS Production.</p>
+<p class='g-p'>1. Navigate to scripts -> prod -> aws (or create these folders if missing).</p>
+<p class='g-p'>2. Click + Create Secret .</p>
+<p class='g-p'>3. Path: scripts/prod/aws/billing -api</p>
+<p class='g-p'>4. Secret Data:</p>
+<p class='g-p'>a. Key: access_key | Value: AKIA......</p>
+<p class='g-p'>b. Key: secret_key | Value: Xy7z......</p>
+<p class='g-p'>5. Click Save .</p>
+<p class='g-p'>How to Rotate (Update) a Password -</p>
+<p class='g-p'>Scenario: The Database password expired and needs updating.</p>
+<p class='g-p'>1. Navigate to the existing secret (e.g., scripts/prod/db/sql -master).</p>
+<p class='g-p'>2. Click Create new version (or Edit).</p>
+<p class='g-p'>3. Replace the old value with the New Password .</p>
+<p class='g-p'>4. Click Save .</p>
+<p class='g-p'>a. Note: Vault keeps a history of old versions in case you need to rollback.</p>
+<p class='g-p'>How to Organize Data (Best Practices)-</p>
+<p class='g-p'>Do not dump everything in the root folder. Use a hierarchy:</p>
+<p class='g-p'>scripts/prod/ (Production data - Highly Sensitive)</p>
+<p class='g-p'>scripts/uat/ (User Acceptance Testing)</p>
+<p class='g-p'>scripts/dev/ (Development keys)</p>
+<p class='g-p'>scripts/common/ (Shared Wi -Fi passwords, license keys)</p>
+<p class='g-p'>4. Emergency Procedures</p>
+<p class='g-p'>What if You (Super User) Forget Your Password?</p>
+<p class='g-p'>1. You must contact the IT Admin Team immediately.</p>
+<p class='g-p'>2. Since your account has elevated access, you may be required to re -verify your</p>
+<p class='g-p'>identity before the reset is processed.</p>
+<p class='g-p'>What if a Secret is Accidentally Deleted?</p>
+<p class='g-p'>1. Don't panic. Vault (KV v2) supports "Soft Delete."</p>
+<p class='g-p'>2. Navigate to the secret path.</p>
+<p class='g-p'>3. Click on the Versions tab.</p>
+<p class='g-p'>4. Locate the deleted version and click Undelete or Rollback .</p>
+<p class='g-p'>Security Rules for Super Users</p>
+<p class='g-p'>1. Need -to-Know Basis: Only share the specific secret path (e.g., scripts/dev/app) with developers, not the actual password text.</p>
+<p class='g-p'>2. No Copy -Pasting: Do not copy secrets from Vault into Slack, Teams, or WhatsApp.</p>
+<p class='g-p'>3. Audit Logs: Remember that every action you take (view, edit, delete) is logged by the system.</p></div>
         </div>
       </article>
     </section>
 
     <footer class="footer">
-      Build with trust and made with <span class="heart">💓</span> by <span class="sampurna">Sampurna IT Team</span>
+      Build with Trust and made with <span class="heart">❤️</span> by the <span class="sampurna">Sampurna IT Team</span>
     </footer>
   </main>
 

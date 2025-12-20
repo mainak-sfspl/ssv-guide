@@ -26,7 +26,8 @@
         </div>
       </div>
 
-      <nav class="nav">
+      <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" title="Menu">☰</button>
+      <nav class="nav" id="site-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="normal.html">Normal User</a>
@@ -42,33 +43,69 @@
       <div class="hero-inner">
         <div>
           <h1 class="h1">About the Platform</h1>
-          <p class="sub">Why SSV exists, what it solves, how it’s structured, and how we keep it low-maintenance without sacrificing security.</p>
+          <p class="sub">Why SSV exists, what it solves, how it’s structured, and how we keep it low‑maintenance without sacrificing security.</p>
           <div class="cta-row">
             <a class="btn primary" href="index.html#guide-index">Jump to Guides</a>
             <a class="btn" href="https://4.187.152.147:8200" target="_blank" rel="noopener">Vault UI</a>
+            <a class="btn" href="http://4.187.152.147:8080" target="_blank" rel="noopener">Keycloak (Admin)</a>
+            <a class="btn" href="http://4.187.152.147:8080/realms/Sampurna/account" target="_blank" rel="noopener">Keycloak (Users)</a>
             <span class="badge">Security-first • Role-based • Audited</span>
           </div>
           <div class='cta-row' style='margin-top:12px'><a class='btn primary' href='assets/pdfs/ssv.pdf' download>Download SSV (PDF)</a></div>
         </div>
-        <div class="preview">
-          <img src="assets/img/about_ssv.png" alt="overview"/>
-        </div>
       </div>
+      <div class="hero-media reveal">
+        <figure class="hero-figure">
+          <img class="zoomable" src="assets/img/about_ssv.png" alt="About SSV"/>
+          <figcaption class="img-hint">Tap/Click the image to zoom</figcaption>
+        </figure>
+      </div>
+    
     </section>
 
     <section class="grid">
       <article class="card reveal">
         <h2>Guide Content</h2>
         <div class="content">
-          <div class="guide-pre">Sampurna Secure Vault (SSV) is our centralized, self-hosted credential and secrets management platform built to eliminate the chaos of decentralized passwords, scattered API keys, and “secrets in spreadsheets.” By moving all sensitive credentials into a single secure vault, SSV reduces data-leak risk, simplifies maintenance, and restores control with end-to-end governance.
+          <div class="guide-body"><h3 class="g-h3">What Problem SSV Solves</h3>
+<p class="g-p">Most security incidents don’t start with “hackers” — they start with <b>credentials scattered everywhere</b>: API keys in code, passwords in chat, and shared spreadsheets nobody can audit.</p>
+<ul class="g-list g-ul">
+  <li><b>Multi‑server credential sprawl:</b> secrets spread across servers, scripts, and tools.</li>
+  <li><b>Personal multi‑password chaos:</b> users juggle multiple passwords with no central oversight.</li>
+  <li><b>High risk outcomes:</b> accidental exposure, data leaks, complex maintenance, and zero accountability.</li>
+</ul>
 
-SSV is powered by a clean separation of duties: Keycloak handles Identity &amp; Access Management (user lifecycle, admin-controlled onboarding, forced password changes, and MFA), while HashiCorp Vault manages secrets (secure storage, RBAC/policies, versioning/rotation, and full audit logging). This combination enables secure user workflows like admin-led onboarding, password reset without email dependency, and safe secret retrieval for applications using short-lived tokens—delivering stronger security, better compliance readiness, and a low-overhead operational model that scales across teams.</div>
+<h3 class="g-h3">The Objective</h3>
+<p class="g-p"><b>Sampurna Secure Vault (SSV)</b> establishes a single, self‑hosted credential and secret vault to manage <b>all passwords, API keys, certificates, and automation tokens</b> — for both users and applications.</p>
+
+<h3 class="g-h3">The Solution: Keycloak + HashiCorp Vault</h3>
+<p class="g-p">SSV combines <b>identity & access management (Keycloak)</b> with <b>secrets management (HashiCorp Vault)</b> — keeping identity separate from secrets and enforcing segregation of duties.</p>
+<ul class="g-list g-ul">
+  <li><b>Keycloak (IAM):</b> user lifecycle, admin‑only creation, forced password changes, and MFA.</li>
+  <li><b>Vault (Secrets):</b> secure storage, fine‑grained RBAC/policies, versioning + rotation, and audit logs.</li>
+</ul>
+
+<h3 class="g-h3">How It Works (Core Workflows)</h3>
+<ol class="g-list g-ol">
+  <li><b>New user onboarding:</b> admin creates the user, shares temporary access, user logs in and enables MFA.</li>
+  <li><b>Password reset (without email):</b> helpdesk/admin resets password securely and forces change at next login.</li>
+  <li><b>Secure secret retrieval for applications:</b> apps fetch short‑lived tokens at runtime (no secrets hardcoded).</li>
+</ol>
+
+<h3 class="g-h3">Business Impact</h3>
+<ul class="g-list g-ul">
+  <li><b>Zero secrets in code:</b> removes accidental Git leaks and hardcoding.</li>
+  <li><b>MFA + Audit by default:</b> every view/edit/delete becomes traceable.</li>
+  <li><b>Low operational overhead:</b> initial setup typically needs only a small engineering effort, then lightweight maintenance.</li>
+</ul>
+
+<p class="g-callout">✅ Bottom line: SSV reduces credential risk, improves compliance, and makes day‑to‑day operations predictable — without adding heavy process.</p></div>
         </div>
       </article>
     </section>
 
     <footer class="footer">
-      Build with Trust and made with <span class="heart">💓</span> by <span class="sampurna">Sampurna IT Team</span>
+      Build with Trust and made with <span class="heart">❤️</span> by the <span class="sampurna">Sampurna IT Team</span>
     </footer>
   </main>
 

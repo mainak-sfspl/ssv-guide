@@ -92,7 +92,7 @@
     document.addEventListener("keydown", onKey);
   }
 
-  document.querySelectorAll(".preview img").forEach((img) => {
+  document.querySelectorAll(".zoomable").forEach((img) => {
     img.style.cursor = "zoom-in";
     img.addEventListener("click", () => openLightbox(img.src, img.alt));
   });
