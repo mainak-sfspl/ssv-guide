@@ -68,11 +68,11 @@
         <div class="content">
           <div class="guide-body"><p class='g-callout'>🔐 Sampurna Vault – Admin Maintenance</p>
 <h1 class="h1">System Administration & Daily Operations</h1>
-<h2>1. Daily Server Routine</h2>
-<h3>A. Start of Day (Server Up & Unsealing)</h3>
+<h2><strong>1. Daily Server Routine</strong></h2>
+<h3><strong>A. Start of Day (Server Up & Unsealing)</strong></h3>
 <p class='g-p'>When the VM is started or restarted, Vault automatically locks itself ("Sealed") for security.</p>
 <p class='g-p'>You must manually unseal it before anyone can log in.</p>
-<h4>1. SSH into the VM:</h4>
+<h4><strong>1. SSH into the VM:</strong></h4>
 <p class='g-p'>"ssh Azureuser@AZ -CI-SM-VM-UAT -01"</p>
 <p class='g-p'>Turn the Server On and Verify Services are Running: Check if the Keycloak and</p>
 <p class='g-p'>Vault Docker containers are active.</p>
@@ -80,7 +80,7 @@
 <p class='g-p'>"docker compose up -d"</p>
 <p class='g-p'>"docker ps"</p>
 <p class='g-p'>(You should see keycloak and vault in the list).</p>
-<h5>Unseal Vault: Vault is sealed if the status checks fail or users can't login.</h5>
+<h5><strong>Unseal Vault: Vault is sealed if the status checks fail or users can't login.</strong></h5>
 <p class='g-p'># 1. Set the Vault Address variable</p>
 <p class='g-p'>"export VAULT_ADDR='https://127.0.0.1:8200'"</p>
 <p class='g-p'># 2. Skip SSL verification (since we use self -signed certs locally)</p>
@@ -92,7 +92,7 @@
 <p class='g-p'>"vault operator unseal <Enter -Key -2>"</p>
 <p class='g-p'>"vault operator unseal <Enter -Key -3>"</p>
 <p class='g-p'>Once Sealed: false, the system is live.</p>
-<h3>B. End of Day (Safe Shutdown)</h3>
+<h3><strong>B. End of Day (Safe Shutdown)</strong></h3>
 <p class='g-p'>If you need to shut down the server to save costs or for maintenance:</p>
 <p class='g-p'>1. Stop Containers Safely:</p>
 <p class='g-p'>"cd ~/SSV -dev"</p>
@@ -100,18 +100,18 @@
 <p class='g-p'>Stop the VM: You can now shut down the VM from the Azure Portal or using the</p>
 <p class='g-p'>command:</p>
 <p class='g-p'>"sudo shutdown now"</p>
-<h2>2. User Support (Helpdesk)</h2>
+<h2><strong>2. User Support (Helpdesk)</strong></h2>
 <p class='g-p'>Note: These actions are done in the Keycloak Admin Console , not the terminal.</p>
 <p class='g-p'>URL: "https://ssv-admin.sampurna.co.in"</p>
 <p class='g-p'>Give Admin’s User_Name and Password</p>
 <p class='g-p'>Realm: Sampurna</p>
-<h5>A. User Forgot Password (Self-Service)</h5>
+<h5><strong>A. User Forgot Password (Self-Service)</strong></h5>
 <p class='g-p'>Users can now reset their own passwords without IT intervention.</p>
 <p class='g-p'>1. Instruct the user to click the <strong>Forgot Password?</strong> link on the login page.</p>
 <p class='g-p'>2. They must enter their <strong>EMPLOYEE_CODE</strong>.</p>
 <p class='g-p'>3. The system will automatically email them a reset link.</p>
 <p class='g-p'><em>Note: You can still manually reset passwords in the Admin Console (Credentials tab) if a user cannot access their email, but self-service is preferred.</em></p>    
-<h5>B. User Forgot Password and thier email as well.</h5>
+<h5><strong>B. User Forgot Password and thier email as well.</strong></h5>
 <p class='g-p'>1. Go to Users in the left menu.</p>
 <p class='g-p'>2. Search for the Employee ID (e.g., 100015) and click on it.</p>
 <p class='g-p'>3. Go to the Credentials tab.</p>
@@ -121,21 +121,21 @@
 <p class='g-p'>&nbsp;c. Temporary: Toggle ON.</p>
 <p class='g-p'>5. Click Save . (Tell the user to log in with 1234. They will be asked to create a new password immediately.)</p>
 <p class='g-p'>6. To change their email at the General tab you can reset their email and Click Save.</p>
-<h5>C. User Lost Phone (Reset 2FA/OTP)</h5>
+<h5><strong>C. User Lost Phone (Reset 2FA/OTP)</strong></h5>
 <p class='g-p'>1. Go to Users -> Search ID -> Click ID.</p>
 <p class='g-p'>2. Go to the Credentials tab.</p>
 <p class='g-p'>3. Find the row labeled OTP and click the Trash Icon (Delete) .</p>
 <p class='g-p'>4. Go to the Required Actions section (sometimes under "Details" or a separate tab depending on version).</p>
 <p class='g-p'>5. Select Configure OTP from the "Add required action" dropdown.</p>
 <p class='g-p'>6. Save . (On the next login, the user will see a new QR code to scan.)</p>
-<h2>3. Bulk Operations (Terminal)</h2>
+<h2><strong>3. Bulk Operations (Terminal)</strong></h2>
 <p class='g-p'>All bulk operations are performed using Python scripts located in ~/SSV -dev .</p>
 <p class='g-callout'>⚠️ Prerequisite: Uploading the CSV File</p>
 <p class='g-p'>Before running any bulk script, you must upload the latest employee list ( Eg. EMP_MASTER_ACTIVE(Sheet1).csv ) from your local computer to the VM also make sure in that csv there should be Employee Code, Employee First Name and Employee Last Name (here the if the csv file name is different and the column name is different then you have to change those things in python script as well. )</p>
-<h3>On your LOCAL Computer (PowerShell/CMD):</h3>
-<h4>PowerShell-</h4>
+<h3><strong>On your LOCAL Computer (PowerShell/CMD):</strong></h3>
+<h4><strong>PowerShell-</strong></h4>
 <p class='g-p'>" scp " C:\Path \To\Your \EMP_MASTER_ACTIVE(Sheet1).csv" Azureuser@4.187.152.147:~/SSV -dev/ "</p>
-<h4>A. Bulk Create Users (Keycloak)</h4>
+<h4><strong>A. Bulk Create Users (Keycloak)</strong></h4>
 <p class='g-p'>This creates users, sets temp passwords, and assigns groups.</p>
 <p class='g-p'>1. SSH into VM: ssh Azureuser@AZ -CI-SM-VM-UAT -01</p>
 <p class='g-p'>2. Go to Folder & Activate Env:</p>
@@ -144,12 +144,12 @@
 <p class='g-p'>Run the Import Script:</p>
 <p class='g-p'>"python3 import_final_v3.py"</p>
 <p class='g-p'>Output: You will see [OK] Created: 100015 for new users and [EXISTS] for existing ones.</p>
-<h4>B. Bulk Delete Users (Keycloak)</h4>
+<h4><strong>B. Bulk Delete Users (Keycloak)</strong></h4>
 <p class='g-p'>Warning: This permanently deletes users from the login system.</p>
 <p class='g-p'>Run the Delete Script:</p>
 <p class='g-p'>"python3 delete_bulk_users.py"</p>
 <p class='g-p'>(The script reads the CSV and deletes those specific users from Keycloak.)</p>
-<h4>C. Bulk Create Secret Folders (Vault)</h4>
+<h4><strong>C. Bulk Create Secret Folders (Vault)</strong></h4>
 <p class='g-p'>Keycloak users exist, but they need their personal mysecret folder in Vault.</p>
 <p class='g-p'>1. Update Admin Token (Important): You must edit the script to put your current Vault Root Token .</p>
 <p class='g-p'>"nano initialize_vault_folders.py"</p>
@@ -157,14 +157,14 @@
 <p class='g-p'># Save: Ctrl+O, Enter, Ctrl+X</p>
 <p class='g-p'>Run the Script:</p>
 <p class='g-p'>"python3 initialize_vault_folders.py"</p>
-<h4>D. Bulk Delete Secret Folders (Vault)</h4>
+<h4><strong>D. Bulk Delete Secret Folders (Vault)</strong></h4>
 <p class='g-p'>This removes user data from Vault.</p>
 <p class='g-p'>1. Update Admin Token:</p>
 <p class='g-p'>"nano delete_vault_folders.py"</p>
 <p class='g-p'># Update: VAULT_TOKEN = "hvs.YourToken..."</p>
 <p class='g-p'>Run the Script:</p>
 <p class='g-p'>"python3 delete_vault_folders.py"</p>
-<h5>Interactive Safety Check:</h5>
+<h5><strong>Interactive Safety Check:</strong></h5>
 <p class='g-p'>&nbsp;a. The script will ask: Enter IDs to SKIP (comma separated):</p>
 <p class='g-p'>&nbsp;b. Type IDs you want to SAVE (e.g., 100015, 100026).</p>
 <p class='g-p'>&nbsp;c. Press Enter to delete everyone else.</p>
